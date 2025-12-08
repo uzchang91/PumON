@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>doctorxyl</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- ▽ icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,200,0,0&icon_names=keyboard_arrow_down" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0&icon_names=add_2" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=keyboard_arrow_right" />
+    <!-- Noto_Sans_KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white font-['Noto_Sans_KR']">
+    <header class="sticky top-0 bg-white z-100 px-12 py-4">
+        <div id="header-content" class="relative flex items-center justify-between">
+
+            <div class="absolute left-0 top-0 flex items-center gap-6 text-neutral-600">
+            <!-- 로고 영역 시작 (로고이미지는 인터넷에서 가져옴)-->
+                <a href="#" class="inline-block bg-contain bg-no-repeat bg-[url('./img/h1_logo_new.png')] h-[42px] w-[135px]"></a>
+                <!-- <img class="w-[135px] inline-block"
+                    src="img/h1_logo_new.png" alt="로고영역"> -->
+                <a href="#"
+                    class="absolute left-44 top-0 flex items-center text-[1rem] border-3 border-neutral-500 text-neutral-500 px-2 py-1.5 rounded-[1.25rem]">
+                    <svg class="mr-1"
+                        xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#6a7282"><path d="M480-120q-74.31 0-140-28.42-65.69-28.43-114.42-77.16-48.73-48.73-77.16-114.42Q120-405.69 120-480q0-74.54 28.42-140.12 28.43-65.57 77.16-114.3 48.73-48.73 114.42-77.16Q405.69-840 480-840q74.54 0 140.12 28.42 65.57 28.43 114.3 77.16 48.73 48.73 77.16 114.3Q840-554.54 840-480q0 74.31-28.42 140-28.43 65.69-77.16 114.42-48.73 48.73-114.3 77.16Q554.54-120 480-120Zm0-39.69q35.23-45.23 58.08-88.85 22.84-43.61 37.15-97.61H384.77q15.85 57.07 37.92 100.69 22.08 43.61 57.31 85.77Zm-50.92-6q-28-33-51.12-81.58-23.11-48.58-34.42-98.88H190.15q34.39 74.61 97.5 122.38 63.12 47.77 141.43 58.08Zm101.84 0q78.31-10.31 141.43-58.08 63.11-47.77 97.5-122.38H616.46q-15.15 51.07-38.27 99.65-23.11 48.58-47.27 80.81ZM173.85-386.15h161.38q-4.54-24.62-6.42-47.97-1.89-23.34-1.89-45.88 0-22.54 1.89-45.88 1.88-23.35 6.42-47.97H173.85q-6.54 20.77-10.2 45.27Q160-504.08 160-480t3.65 48.58q3.66 24.5 10.2 45.27Zm201.38 0h209.54q4.54-24.62 6.42-47.2 1.89-22.57 1.89-46.65t-1.89-46.65q-1.88-22.58-6.42-47.2H375.23q-4.54 24.62-6.42 47.2-1.89 22.57-1.89 46.65t1.89 46.65q1.88 22.58 6.42 47.2Zm249.54 0h161.38q6.54-20.77 10.2-45.27Q800-455.92 800-480t-3.65-48.58q-3.66-24.5-10.2-45.27H624.77q4.54 24.62 6.42 47.97 1.89 23.34 1.89 45.88 0 22.54-1.89 45.88-1.88 23.35-6.42 47.97Zm-8.31-227.7h153.39Q734.69-690 673.5-736.23q-61.19-46.23-142.58-58.85 28 36.85 50.35 84.27 22.35 47.43 35.19 96.96Zm-231.69 0h190.46q-15.85-56.3-39.08-101.84-23.23-45.54-56.15-84.62-32.92 39.08-56.15 84.62-23.23 45.54-39.08 101.84Zm-194.62 0h153.39q12.84-49.53 35.19-96.96 22.35-47.42 50.35-84.27-82.16 12.62-142.96 59.23-60.81 46.62-95.97 122Z"/>
+                    </svg>
+                    ENG
+                </a>
+            </div>
+            <!-- 메뉴 영역 시작 -->
+            <nav class="flex justify-center items-center w-screen">
+                <input type="checkbox" id="menuhover" class="hidden peer"/>
+                <label for="menuhover" class="inline-flex gap-12 cursor-pointer whitespace-nowrap text-[clamp(0.8rem,3vw,1rem)] text-gray-500 h-10.5">
+                    <ul class="flex text-lg gap-19 items-center text-neutral-700">
+                        <li class="cursor-pointer">회사소개</li>        
+                        <li class="cursor-pointer">브랜드 소개</li>
+                        <li class="cursor-pointer">투자정보</li>
+                        <li class="cursor-pointer">ESG경영</li>
+                        <li class="cursor-pointer">홍보센터</li>
+                        <li class="cursor-pointer">채용</li>
+                        <li class="cursor-pointer">고객센터</li>
+                    </ul>
+                </label>
+                <div class="hidden peer-hover:flex justify-center items-center w-screen absolute top-14.5 text-base bg-white py-6 border-t-1 border-t-neutral-300">
+                        <ul class="flex justify-center gap-11.5">
+                            <ul class="text-neutral-500 flex flex-col items-center">
+                                <li>회사개요</li>
+                                <li>연혁</li>
+                                <li>세계속의롯데웰푸드</li>
+                                <li>사업장위치</li>
+                            </ul>
+                            <ul class="text-neutral-500 flex flex-col items-center">
+                                <li>제품소개</li>
+                                <li>주요브랜드</li>
+                                <li>캐릭터스토리</li>
+                            </ul>
+                            <ul class="text-neutral-500 flex flex-col items-center">
+                                <li>주주정보</li>
+                                <li>주가정보</li>
+                                <li>재무정보</li>
+                                <li>전자공고및공시</li>
+                                <li>IR정보</li>
+                            </ul>
+                            <ul class="text-neutral-500 flex flex-col items-center">
+                                <li>ESG경영체계</li>
+                                <li>ESG 정책</li>
+                                <li>환경경영(E)</li>
+                                <li>사회공헌(S)</li>
+                                <li>안전경영(S)</li>
+                                <li>지배구조(G)</li>
+                                <li>컴플라이언스</li>
+                            </ul>
+                            <ul class="text-neutral-500 flex flex-col items-center">
+                                <li>공지사항</li>
+                                <li>뉴스자료실</li>
+                                <li>CF스토리</li>
+                                <li>LiveSocial</li>
+                                <li>가나초콜릿체</li>
+                                <li>설레임체</li>
+                                <li>닥터자일리톨버스</li>
+                                <li>이벤트</li>
+                                <li>레시피</li>
+                            </ul>
+                            <ul class="text-neutral-500 flex flex-col items-center">
+                                <li>채용공고</li>
+                                <li>인재DB</li>
+                                <li>채용정보</li>
+                            </ul>
+                            <ul class="text-neutral-500 flex flex-col items-center">
+                                <li>FAQ</li>
+                                <li>고객의 소리</li>
+                                <li>아이디어 제안</li>
+                            </ul>
+                        </ul>
+                </div>
+            </nav>
+                
+            <!-- 쇼핑몰로 이동하는 버튼 영역 시작 -->
+            <div class="absolute text-center top-0 right-0 flex gap-1.5">
+                <a href="#"
+                    class="border-3 border-neutral-500 text-neutral-500 px-2.5 py-1.5 rounded-[1.25rem] text-base font-base cursor-pointer">
+                    푸드몰
+                </a>
+        
+                <a href="#"
+                    class="border-3 border-neutral-500 text-neutral-500 px-2.5 py-1.5 rounded-[1.25rem] text-base font-base cursor-pointer">
+                    스위트몰
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <main class="text-neutral-800 -translate-y-[74px]">
+
+        <!-- top banner max-xl: max-md: -->
+        <div class="relative w-full overflow-hidden">
+            <!-- banner img -->
+            <img class="w-full h-full bg-cover bg-center scale-120 max-xl:scale-120 max-md:scale-120 z-0" src="img/bus-banner.jpg" alt="">
+            <!-- <div class="w-full h-full bg-[url('./img/bus-banner.jpg')] bg-cover bg-center scale-120 z-0"></div> -->
+            <!-- banner text -->
+            <div class="absolute top-3/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col text-center text-gray-50">
+                    <span class="whitespace-nowrap text-[clamp(1rem,3vw,1.9rem)]"><span class="font-bold">치아가 건강한</span> 대한민국을 위해 간다!</span>
+                    <span class="whitespace-nowrap font-bold text-[clamp(3rem,8vw,6rem)]">닥터자일리톨버스</span>
+            </div>
+        </div>
+
+        <!-- breadcrumb bar -->
+        <nav class="hidden lg:inline-flex sticky top-[148px] py-4 border-y bg-white border-gray-100 w-screen h-18 z-20" aria-label="Breadcrumb">
+            <div id="dropdown" class="inline-flex items-center mx-40">
+                <!-- home icon -->
+                <div class="flex items-center px-4">
+                    <a href="#" class="text-gray-500 font-medium">
+                        <svg class="w-8 h-8 me-1.5" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.5147 8.48529C20.201 3.79899 27.799 3.79899 32.4853 8.48528L39.5147 15.5147C44.201 20.201 44.201 27.799 39.5147 32.4853L32.4853 39.5147C27.799 44.201 20.201 44.201 15.5147 39.5147L8.48529 32.4853C3.79899 27.799 3.79899 20.201 8.48528 15.5147L15.5147 8.48529Z" fill="#727272"/>
+                            <path d="M18 31.5455V17H19.7614V23.4773H27.517V17H29.2784V31.5455H27.517V25.0398H19.7614V31.5455H18Z" fill="white"/>
+                        </svg>
+                    </a>
+                </div>
+                <!-- divider -->
+                <div class="w-px h-5 bg-gray-300"></div>
+                <!-- 홍보센터 -->
+                <div class="relative inline-block px-4">
+                    <!-- changes content to hidden-checkbox style -->
+                    <input type="checkbox" id="menuToggle" class="hidden peer"/>
+                    <label for="menuToggle" class="inline-flex gap-12 cursor-pointer whitespace-nowrap text-[clamp(0.8rem,3vw,1rem)] text-gray-500 font-semi-bold">
+                            <span class="ml-2">홍보센터</span>
+                            <div class="ml-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#6a7282"><path d="M480-384.85q-6.46 0-11.92-2.11-5.46-2.12-10.7-7.35L281.85-569.85q-5.62-5.61-6-13.77-.39-8.15 6-14.53 6.38-6.39 14.15-6.39 7.77 0 14.15 6.39L480-428.31l169.85-169.84q5.61-5.62 13.77-6 8.15-.39 14.53 6 6.39 6.38 6.39 14.15 0 7.77-6.39 14.15L502.62-394.31q-5.24 5.23-10.7 7.35-5.46 2.11-11.92 2.11Z"/></svg>
+                            </div>
+                    </label>
+                    <ul class="hidden peer-checked:block w-full absolute left-0 top-10 bg-white shadow-lg shadow-gray-300 px-6 py-4 font-semi-bold text-gray-700 rounded whitespace-nowrap z-90">
+                        <li class="py-3 cursor-pointer"><a href="">회사소개</a></li>
+                        <li class="py-3 cursor-pointer">브랜드 소개</li>
+                        <li class="py-3 cursor-pointer">투자정보</li>
+                        <li class="py-3 cursor-pointer">ESG경영</li>
+                        <li class="py-3 cursor-pointer">홍보센터</li>
+                        <li class="py-3 cursor-pointer">채용</li>
+                        <li class="py-3 cursor-pointer">고객센터</li>
+                    </ul>
+                </div>
+                <!-- divider -->
+                <div class="w-px h-5 bg-gray-300"></div>
+                <!-- 닥터자일리톨버스 -->
+                <div class="relative inline-block px-4">
+                    <input type="checkbox" id="menuToggle2" class="hidden peer"/>
+                    <label for="menuToggle2" class="inline-flex cursor-pointer whitespace-nowrap text-[clamp(0.8rem,3vw,1rem)] text-base text-gray-500 gap-12 font-semi-bold">
+                        <span class="ml-2">닥터자일리톨버스</span>
+                        <div class="ml-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#6a7282"><path d="M480-384.85q-6.46 0-11.92-2.11-5.46-2.12-10.7-7.35L281.85-569.85q-5.62-5.61-6-13.77-.39-8.15 6-14.53 6.38-6.39 14.15-6.39 7.77 0 14.15 6.39L480-428.31l169.85-169.84q5.61-5.62 13.77-6 8.15-.39 14.53 6 6.39 6.38 6.39 14.15 0 7.77-6.39 14.15L502.62-394.31q-5.24 5.23-10.7 7.35-5.46 2.11-11.92 2.11Z"/></svg>
+                        </div>
+                    </label>
+                        <ul class="hidden peer-checked:block w-full absolute left-0 top-10 bg-white shadow-lg shadow-gray-300 px-6 py-4 font-semi-bold text-gray-500 rounded whitespace-nowrap z-90">
+                            <li class="py-3 cursor-pointer">공지사항</li>
+                            <li class="py-3 cursor-pointer">뉴스자료실</li>
+                            <li class="py-3 cursor-pointer">CF스토리</li>
+                            <li class="py-3 cursor-pointer">LiveSocial</li>
+                            <li class="py-3 cursor-pointer">가나초코릿체</li>
+                            <li class="py-3 cursor-pointer">설레임체</li>
+                            <li class="py-3 cursor-pointer">닥터자일리톨버스</li>
+                            <li class="py-3 cursor-pointer">이벤트</li>
+                            <li class="py-3 cursor-pointer">레시피</li>
+                        </ul>  
+                </div>
+                <!-- divider -->
+                <div class="w-px h-5 bg-gray-300"></div>
+                <!-- 신청접수 -->
+                <div class="relative group  px-4">
+                    <input type="checkbox" id="menuToggle3" class="hidden peer"/>
+                    <label for="menuToggle3" class="inline-flex cursor-pointer whitespace-nowrap text-[clamp(0.8rem,3vw,1rem)] text-base text-gray-500 gap-12 font-semi-bold">
+                        <span class="ml-2">신청접수</span>
+                        <div class="ml-16">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#6a7282"><path d="M480-384.85q-6.46 0-11.92-2.11-5.46-2.12-10.7-7.35L281.85-569.85q-5.62-5.61-6-13.77-.39-8.15 6-14.53 6.38-6.39 14.15-6.39 7.77 0 14.15 6.39L480-428.31l169.85-169.84q5.61-5.62 13.77-6 8.15-.39 14.53 6 6.39 6.38 6.39 14.15 0 7.77-6.39 14.15L502.62-394.31q-5.24 5.23-10.7 7.35-5.46 2.11-11.92 2.11Z"/></svg>
+                        </div>
+                    </label>
+                        <ul class="hidden peer-checked:block w-full absolute left-0 top-10 bg-white shadow-lg shadow-gray-300 px-6 py-4 font-semi-bold text-gray-500 rounded whitespace-nowrap z-90">
+                            <li class="py-3 cursor-pointer">닥터자일리톨버스 소개</li>
+                            <li class="py-3 cursor-pointer">신청접수</li>
+                        </ul>  
+                </div>
+                <div class="w-px h-5 bg-gray-300"></div>
+            </div>
+        </nav>
+
+        <!-- top content -->
+        <div class="relative z-10 w-[1240px] m-auto">
+            <!-- big tabs -->
+            <div class="flex justify-center gap-12 my-40">
+                <span class="text-neutral-300 font-bold whitespace-nowrap text-[clamp(1.8rem,3vw,3rem)] cursor-pointer">닥터자일리톨버스 소개</span>
+                <span class="text-neutral-900 font-bold whitespace-nowrap text-[clamp(1.8rem,3vw,3rem)] cursor-pointer underline decoration-20 -underline-offset-4 decoration-red-500">신청접수</span>
+            </div>
+            <!-- title -->
+            <div class="text-left myt-40">
+                <p class="text-neutral-900 text-[clamp(1.8rem,3vw,3rem)] font-light whitespace-nowrap">닥터자일리톨 버스가 간다!<br>
+                <span class="text-neutral-900 text-[clamp(1.8rem,3vw,3rem)] font-bold whitespace-nowrap">캠페인 처리 절차</span></p>
+            </div>
+        </div>
+        <!-- procedure map -->
+        <div class="relative w-screen h-96 my-20">
+            <!-- map img -->
+            <div class="absolute left-0 w-full h-full overflow-x-scroll">
+                <img class="scale-150 lg:scale-100 bg-contain bg-center mt-8" src="img/campaign_steps.png" alt="">
+            </div>
+        </div>
+
+        <!-- TOS input -->
+        <div class="text-neutral-800 mt-40 w-[1240px] m-auto">
+            <div class="mt-8">
+                <span class="font-light text-5xl">개인정보 <strong class="font-bold">수집동의 </strong></span><span class="text-red-600 font-light text-xl">(필수)</span>
+            </div>
+            <!-- tos text -->
+            <div class="bg-gray-100 p-12 mt-12 h-56 overflow-scroll text-base/7">
+                <p>
+                    닥터자일리톨버스 개인정보수집동의
+                    <br>
+                    <span class="text-neutral-500">
+                        이용자 본인은 아래의 개인정보가 사실임을 확인하며, 아래와 같이 개인정보를 수집 및 이용하는 것에 동의합니다.
+                    </span>
+                </p>
+                <br>
+                <p>1. 개인정보의 수집 및 이용 목적</p>
+                <p class="text-neutral-500">
+                    원활한 고객상담, 각종 서비스의 제공, 정확한 본인 확인을 위한 개인정보를 수집하고 있습니다.<br>
+                    수집한 개인정보는 수집∙이용목적 이외에 고객의 동의 없이 다른 용도로 이용하거나 제3자에게 제공하지 않습니다.
+                </p>
+                <br>
+                <p>2. 수집하는 개인정보의 항목</p>
+                <p class="text-neutral-500">필수 : 성명, 주소, 연락처</p>
+                <br>
+                <p>3. 개인정보의 보유 및 이용기간</p>
+                <p class="text-neutral-500">고객문의 등 고객상담 및 각종 서비스 제공을 위해 1년간 보관하겠습니다.</p>
+                <br>
+                <p>4. 개인정보 수집 동의 거부의 권리</p>
+                <p class="text-neutral-500">
+                    롯데웰푸드는 원활한 고객 상담 등 기타 서비스 제공을 위한 정보 외에 추가 정보는 수집하지 않습니다.<br>
+                    귀하는 개인정보수집에 동의하지 않을 수 있으며, 귀하가 동의하지 않을 경우 닥터자일리톨버스 신청접수 및 서비스 이용이 제한될 수 있습니다.
+                </p>
+            </div>
+            <!-- tos radio -->
+            <div class="flex justify-end gap-8 mt-4 text-neutral-500">
+                <label class="flex items-center gap-4 text-xl ">
+                    <input type="radio" name="radio" value="agree" class="hidden peer">
+                    <span class="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center peer-checked:border-neutral-800"></span>
+                    <span class="w-5 h-5 bg-red-600 rounded-full opacity-0 peer-checked:opacity-100 -ml-10.5">
+                    </span>
+                    동의
+                </label>
+                <label class="flex items-center gap-4 text-xl">
+                    <input type="radio" name="radio" value="disagree" class="hidden peer">
+                    <span class="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center peer-checked:border-neutral-800"></span>
+                    <span class="w-5 h-5 bg-red-600 rounded-full opacity-0 peer-checked:opacity-100 -ml-10.5">
+                    </span>
+                    동의하지 않음
+                </label>
+            </div>
+        </div>
+
+        <!-- Application -->
+        <div class="text-neutral-800 mt-40 w-[1240px] m-auto">
+            <!-- title -->
+            <div class="text-neutral-400">
+                <span class="text-lg"><strong class="text-5xl text-neutral-800">신청서 작성 </strong>접수 내용에 대한 신속, 정확한 처리를 위해 필수입력 사항을 반드시 입력하셔야 합니다.</span>
+            </div>
+            <!-- input -->
+            <ul class="py-10 border-y-1 border-b-neutral-200 mt-12">
+                <!-- name -->
+                <li class="relative pl-32 w-full">
+                    <label class="flex items-center absolute left-0 top-0 text-xl h-18" for="name">
+                        성명
+                        <span class="text-red-600">*</span>
+                    </label>
+                    <span class="w-full">
+                        <input class="text-xl px-8 w-full bg-gray-100 h-18" type="text" for="name">
+                    </span>
+                </li>
+                <!-- address -->
+                <li class="relative pl-32 w-full mt-4">
+                    <label class="flex items-center absolute left-0 top-0 text-xl h-18" for="address">
+                        주소
+                    </label>
+                    <span class="flex w-full">
+                        <input class="text-xl px-8 w-full bg-gray-50 h-18" type="text" name="address" for="address" disabled>
+                        <a class="flex items-center text-xl px-8 py-4 bg-white h-18 border-1 whitespace-nowrap" href="#">주소검색</a>
+                    </span>
+                    <span class="w-full">
+                        <input class="text-xl px-8 bg-gray-100 w-full h-18 mt-4" type="text" name="address" for="address" placeholder="상세주소를 입력해주세요.">
+                    </span>
+                </li>
+                <!-- contact -->
+                <li class="relative pl-32 w-full mt-4">
+                    <label class="flex items-center absolute left-0 top-0 text-xl h-18" for="numberType">
+                        연락처
+                        <span class="text-red-600">*</span>
+                    </label>
+                    <div class="flex items-center w-full text-xl bg-gray-100">
+                        <input class="px-8 w-full h-18" maxlength="4" type="number">
+                        <span class="text-neutral-400 font-bold">-</span>
+                        <input class="px-8 w-full h-18" maxlength="4" type="number">
+                        <span class="text-neutral-400 font-bold">-</span>
+                        <input class="px-8 w-full h-18" maxlength="4" type="number">
+                    </div>
+                </li>
+                <!-- detail -->
+                <li class="relative pl-32 w-full mt-4">
+                    <div class="flex items-center ">
+                        <label class="flex items-center absolute left-0 top-0 text-xl h-18" for="message">
+                            사연
+                            <span class="text-red-600">*</span>
+                        </label>
+                        <span class="w-full h-50">
+                            <textarea class="text-xl p-4 w-full h-full bg-gray-100 overflow-hidden resize-none" type="text" for="message"></textarea>
+                        </span>
+                    </div>
+                    <p class="text-neutral-800 font-light text-sm text-right mt-4">0/2,000 Byte</p>
+                </li>
+                <!-- security -->
+                <li class="relative pl-32 w-full mt-4">
+                    <label class="flex items-center absolute left-0 top-0 text-xl h-18" for="address">
+                        보안문자입력
+                    </label>
+                    <div class="flex gap-4 w-full">
+                        <div>
+                            <img class="h-18 bg-cover bg-center" src="img/captcha.png" alt="captcha">
+                        </div>
+                        <span class="flex w-full">
+                            <input class="text-xl px-8 w-full bg-gray-100 h-18" type="text" name="address" for="address" placeholder="보안문자 6자리">
+                            <a class="flex items-center text-xl px-8 py-4 bg-white h-18 border-1 whitespace-nowrap" href="#">새로고침</a>
+                        </span>
+                    </div>
+                </li>
+            </ul>
+            <!-- button -->
+            <div class="flex justify-center mt-20">
+                <a href="#" class="rounded-full bg-neutral-800 px-8 py-4">
+                    <span class="text-white text-xl">신청하기</span>
+                </a>
+            </div>
+            <!-- caution -->
+            <div class="mt-25">
+                <span class="text-base/8 text-neutral-500">
+                    <strong class="text-neutral-800">ⓘ 유의사항</strong><br>
+                    - 응모한 사연이 본 이벤트와 무관한 내용인 경우(불건전, 광고 등) 경고 없이 삭제 처리됩니다.<br>
+                    - 응모한 사연이 타인의 저작권을 침해하는 경우, 사실이 아닌 것으로 판명될 경우에는 당첨자 발표 뒤에도 당첨이 취소될 수 있으며, 이에 따른 책임은 응모자 본인에게 있습니다.<br>
+                    - 당첨자 정보는 본 이벤트 이외에는 사용되지 않습니다.<br>
+                    - 잘못된 정보 입력으로 3회 이상 연락이 되지 않을 경우 당첨이 취소될 수 있습니다.<br>
+                    - 치과의료서비스를 타인 (또는 타 기관)에게 양도하는 것은 불가합니다.<br>
+                    - 중복당첨의 경우 당첨 공지 이후에도 취소될 수 있습니다.<br>
+                    - 이벤트 관련 문의는 운영대행사 주식회사 잘함(lotte.csr@jalham.com)을 이용해 주시면 됩니다.
+                </span>
+            </div>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="bg-neutral-900">
+            <!-- event recipe announcement -->
+            <div class="bg-white border-t-1 border-neutral-300">
+                <ul class="flex justify-evenly items-center m-auto w-4/5">
+                    <li class="flex justify-between items-center w-full text-2xl font-light px-8">
+                        <a href="#" class="flex justify-between items-center w-full py-13">
+                            <span>이벤트</span>
+                            <div class="flex justify-center items-center w-11 h-11 rounded-full bg-neutral-200">
+                                <span class="material-symbols-rounded">keyboard_arrow_right</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="flex justify-between items-center w-full text-2xl font-light px-8 border-x-1 border-neutral-300">
+                        <a href="#" class="flex justify-between items-center w-full py-13">
+                            <span>레시피</span>
+                            <div class="flex justify-center items-center w-11 h-11 rounded-full bg-neutral-200">
+                                <span class="material-symbols-rounded">keyboard_arrow_right</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="flex justify-between items-center w-full text-2xl font-light px-8">
+                        <a href="#" class="flex justify-between items-center w-full py-13">
+                            <span>공지사항</span>
+                            <div class="flex justify-center items-center w-11 h-11 rounded-full bg-neutral-200">
+                                <span class="material-symbols-rounded">keyboard_arrow_right</span>
+                            </div>
+                        </a>
+                    </liv>
+                </ul>
+            </div>
+
+            <!-- main footer -->
+            <div class="relative flex justify-evenly items-center m-auto w-4/5 py-[25px]">
+                <div class="absolute top-5 left-0">
+                    <a href="#" class="inline-block bg-contain bg-no-repeat bg-[url('./img/h2_logo_new_BW.png')] h-[36px] w-[116px]"></a>
+                </div>
+                <div class="flex justify-center items-center">
+                    <ul class="flex justify-center items-center gap-8 text-neutral-500 font-light">
+                        <li class="text-white">롯데윤리강령</li>
+                        <li class="text-white">동반성장</li>
+                        <li class="text-red-500">개인정보 처리방침</li>
+                        <li>영상정보처리기기운영관리방침</li>
+                        <li>이메일무단수집거부</li>
+                        <li>사이트맵</li>
+                    </ul>
+                </div>
+                <div class="absolute top-0 right-0 border-x-1 border-x-neutral-700 text-white font-light flex justify-between items-center gap-auto h-full w-54 px-8">
+                    <span>Family Site</span>
+                    <span class="material-symbols-outlined">add_2</span>
+                </div>
+            </div>
+            <div class="border-t-1 border-t-neutral-700 text-center text-[0.875rem] pt-4 pb-20 text-neutral-500">
+                COPYRIGHT 2022 LOTTE WELLFOOD CO.,LTD. ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
