@@ -7,31 +7,28 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- ▽ icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,200,0,0&icon_names=keyboard_arrow_down" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0&icon_names=add_2" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=keyboard_arrow_right" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=language" />
     <!-- Noto_Sans_KR -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body class="bg-white font-['Noto_Sans_KR']">
-    <header class="sticky top-0 bg-white z-100 px-12 py-4">
+    <header class="sticky top-0 bg-white z-100 px-12 py-4 text-">
         <div id="header-content" class="relative flex items-center justify-between">
 
             <div class="absolute left-0 top-0 flex items-center gap-6 text-neutral-600">
             <!-- 로고 영역 시작 (로고이미지는 인터넷에서 가져옴)-->
                 <a href="#" class="inline-block bg-contain bg-no-repeat bg-[url('./img/h1_logo_new.png')] h-[42px] w-[135px]"></a>
-                <!-- <img class="w-[135px] inline-block"
-                    src="img/h1_logo_new.png" alt="로고영역"> -->
                 <a href="#"
-                    class="absolute left-44 top-0 flex items-center text-[1rem] border-3 border-neutral-500 text-neutral-500 px-2 py-1.5 rounded-[1.25rem]">
-                    <svg class="mr-1"
-                        xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#6a7282"><path d="M480-120q-74.31 0-140-28.42-65.69-28.43-114.42-77.16-48.73-48.73-77.16-114.42Q120-405.69 120-480q0-74.54 28.42-140.12 28.43-65.57 77.16-114.3 48.73-48.73 114.42-77.16Q405.69-840 480-840q74.54 0 140.12 28.42 65.57 28.43 114.3 77.16 48.73 48.73 77.16 114.3Q840-554.54 840-480q0 74.31-28.42 140-28.43 65.69-77.16 114.42-48.73 48.73-114.3 77.16Q554.54-120 480-120Zm0-39.69q35.23-45.23 58.08-88.85 22.84-43.61 37.15-97.61H384.77q15.85 57.07 37.92 100.69 22.08 43.61 57.31 85.77Zm-50.92-6q-28-33-51.12-81.58-23.11-48.58-34.42-98.88H190.15q34.39 74.61 97.5 122.38 63.12 47.77 141.43 58.08Zm101.84 0q78.31-10.31 141.43-58.08 63.11-47.77 97.5-122.38H616.46q-15.15 51.07-38.27 99.65-23.11 48.58-47.27 80.81ZM173.85-386.15h161.38q-4.54-24.62-6.42-47.97-1.89-23.34-1.89-45.88 0-22.54 1.89-45.88 1.88-23.35 6.42-47.97H173.85q-6.54 20.77-10.2 45.27Q160-504.08 160-480t3.65 48.58q3.66 24.5 10.2 45.27Zm201.38 0h209.54q4.54-24.62 6.42-47.2 1.89-22.57 1.89-46.65t-1.89-46.65q-1.88-22.58-6.42-47.2H375.23q-4.54 24.62-6.42 47.2-1.89 22.57-1.89 46.65t1.89 46.65q1.88 22.58 6.42 47.2Zm249.54 0h161.38q6.54-20.77 10.2-45.27Q800-455.92 800-480t-3.65-48.58q-3.66-24.5-10.2-45.27H624.77q4.54 24.62 6.42 47.97 1.89 23.34 1.89 45.88 0 22.54-1.89 45.88-1.88 23.35-6.42 47.97Zm-8.31-227.7h153.39Q734.69-690 673.5-736.23q-61.19-46.23-142.58-58.85 28 36.85 50.35 84.27 22.35 47.43 35.19 96.96Zm-231.69 0h190.46q-15.85-56.3-39.08-101.84-23.23-45.54-56.15-84.62-32.92 39.08-56.15 84.62-23.23 45.54-39.08 101.84Zm-194.62 0h153.39q12.84-49.53 35.19-96.96 22.35-47.42 50.35-84.27-82.16 12.62-142.96 59.23-60.81 46.62-95.97 122Z"/>
-                    </svg>
+                    class="absolute left-44 top-0 flex items-center text-base border-3 border-neutral-500 text-neutral-500 px-2 py-1.5 rounded-[1.25rem]">
+                    <span class="material-symbols-outlined mr-1">language</span>
                     ENG
                 </a>
             </div>
-            <!-- 메뉴 영역 시작 -->
+            <!-- main menu -->
             <nav class="flex justify-center items-center w-screen">
                 <input type="checkbox" id="menuhover" class="hidden peer"/>
                 <label for="menuhover" class="inline-flex gap-12 cursor-pointer whitespace-nowrap text-[clamp(0.8rem,3vw,1rem)] text-gray-500 h-10.5">
@@ -45,6 +42,7 @@
                         <li class="cursor-pointer">고객센터</li>
                     </ul>
                 </label>
+                <!-- dropdown menu -->
                 <div class="hidden peer-hover:flex justify-center items-center w-screen absolute top-14.5 text-base bg-white py-6 border-t-1 border-t-neutral-300">
                         <ul class="flex justify-center gap-11.5">
                             <ul class="text-neutral-500 flex flex-col items-center gap-3">
@@ -129,7 +127,7 @@
         </div>
 
         <!-- breadcrumb bar -->
-        <nav class="hidden lg:inline-flex sticky top-[148px] py-4 border-y bg-white border-gray-100 w-screen h-18 z-20" aria-label="Breadcrumb">
+        <nav class="hidden lg:inline-flex sticky top-[148px] py-4 border-y bg-white border-gray-100 max-w-[1240px] m-auto h-18 z-20" aria-label="Breadcrumb">
             <div id="dropdown" class="inline-flex items-center mx-40">
                 <!-- home icon -->
                 <div class="flex items-center px-4">
@@ -206,11 +204,11 @@
         </nav>
 
         <!-- top content -->
-        <div class="relative z-10 w-[1240px] m-auto">
+        <div class="relative z-10 max-w-[1240px] m-auto">
             <!-- big tabs -->
-            <div class="flex justify-center gap-12 my-40">
-                <span class="text-neutral-300 font-bold whitespace-nowrap text-[clamp(1.8rem,3vw,3rem)] cursor-pointer">닥터자일리톨버스 소개</span>
-                <span class="text-neutral-900 font-bold whitespace-nowrap text-[clamp(1.8rem,3vw,3rem)] cursor-pointer underline decoration-20 -underline-offset-4 decoration-red-500">신청접수</span>
+            <div class="flex justify-center items-center text-[clamp(1.8rem,3vw,3rem)] gap-12 my-40">
+                <span class="text-neutral-300 font-bold whitespace-nowrap cursor-pointer">닥터자일리톨버스 소개</span>
+                <span class="text-neutral-900 font-bold whitespace-nowrap cursor-pointer underline decoration-20 -underline-offset-4 decoration-red-500">신청접수</span>
             </div>
             <!-- title -->
             <div class="text-left myt-40">
@@ -408,23 +406,25 @@
             </div>
 
             <!-- main footer -->
-            <div class="relative flex justify-evenly items-center m-auto w-4/5 py-[25px]">
+            <div class="relative flex justify-evenly items-center max-w-[1600px] m-auto py-[25px]">
                 <div class="absolute top-5 left-0">
                     <a href="#" class="inline-block bg-contain bg-no-repeat bg-[url('./img/h2_logo_new_BW.png')] h-[36px] w-[116px]"></a>
                 </div>
                 <div class="flex justify-center items-center">
-                    <ul class="flex justify-center items-center gap-8 text-neutral-500 font-light">
-                        <li class="text-white">롯데윤리강령</li>
-                        <li class="text-white">동반성장</li>
-                        <li class="text-red-500">개인정보 처리방침</li>
-                        <li>영상정보처리기기운영관리방침</li>
-                        <li>이메일무단수집거부</li>
-                        <li>사이트맵</li>
-                    </ul>
+                    <div>
+                        <ul class="flex justify-center items-center w-max gap-8 text-neutral-500 font-light">
+                            <li class="text-white">롯데윤리강령</li>
+                            <li class="text-white">동반성장</li>
+                            <li class="text-red-500">개인정보 처리방침</li>
+                            <li>영상정보처리기기운영관리방침</li>
+                            <li>이메일무단수집거부</li>
+                            <li>사이트맵</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="absolute top-0 right-0 border-x-1 border-x-neutral-700 text-white font-light flex justify-between items-center gap-auto h-full w-54 px-8">
                     <span>Family Site</span>
-                    <span class="material-symbols-outlined">add_2</span>
+                    <span class="material-symbols-outlined">add</span>
                 </div>
             </div>
             <div class="border-t-1 border-t-neutral-700 text-center text-[0.875rem] pt-4 pb-20 text-neutral-500">
