@@ -16,14 +16,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body class="bg-white font-['Noto_Sans_KR']">
-    <header class="sticky top-0 bg-white z-100 px-12 py-4 text-">
+    <header class="sticky top-0 bg-white z-100 py-4 text-">
         <div id="header-content" class="relative flex items-center justify-between">
 
             <div class="absolute left-0 top-0 flex items-center gap-6 text-neutral-600">
             <!-- 로고 영역 시작 (로고이미지는 인터넷에서 가져옴)-->
-                <a href="#" class="inline-block bg-contain bg-no-repeat bg-[url('./img/h1_logo_new.png')] h-[42px] w-[135px]"></a>
+                <a href="#" class="bg-contain bg-no-repeat bg-[url('./img/h1_logo_new.png')] h-[42px] w-[135px]"></a>
                 <a href="#"
-                    class="absolute left-44 top-0 flex items-center text-base border-3 border-neutral-500 text-neutral-500 px-2 py-1.5 rounded-[1.25rem]">
+                    class="flex items-center text-base md:text-sm border-3 border-neutral-500 text-neutral-500 px-2 py-1.5 md:py-0.5 rounded-[1.25rem]">
                     <span class="material-symbols-outlined mr-1">language</span>
                     ENG
                 </a>
@@ -32,7 +32,7 @@
             <nav class="flex justify-center items-center w-screen">
                 <input type="checkbox" id="menuhover" class="hidden peer"/>
                 <label for="menuhover" class="inline-flex gap-12 cursor-pointer whitespace-nowrap text-[clamp(0.8rem,3vw,1rem)] text-gray-500 h-10.5">
-                    <ul class="flex text-lg gap-19 items-center text-neutral-700">
+                    <ul class="flex text-lg gap-19 md:gap-8 md:text-base items-center text-neutral-700">
                         <li class="cursor-pointer">회사소개</li>        
                         <li class="cursor-pointer">브랜드 소개</li>
                         <li class="cursor-pointer">투자정보</li>
@@ -98,14 +98,14 @@
             </nav>
                 
             <!-- 쇼핑몰로 이동하는 버튼 영역 시작 -->
-            <div class="absolute text-center top-0 right-0 flex gap-1.5">
+            <div class="absolute top-0 right-0 md:top-1 flex gap-1.5">
                 <a href="#"
-                    class="border-3 border-neutral-500 text-neutral-500 px-2.5 py-1.5 rounded-[1.25rem] text-base font-base cursor-pointer">
+                    class="border-3 border-neutral-500 text-neutral-500 px-2.5 py-1.5 md:py-0.5 rounded-[1.25rem] text-base md:text-sm font-base cursor-pointer">
                     푸드몰
                 </a>
         
                 <a href="#"
-                    class="border-3 border-neutral-500 text-neutral-500 px-2.5 py-1.5 rounded-[1.25rem] text-base font-base cursor-pointer">
+                    class="border-3 border-neutral-500 text-neutral-500 px-2.5 py-1.5 md:py-0.5 rounded-[1.25rem] text-base md:text-sm font-base cursor-pointer">
                     스위트몰
                 </a>
             </div>
