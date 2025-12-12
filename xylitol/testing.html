@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <header class="sticky top-0 bg-white z-100">
+        <nav class="flex justify-center items-center w-full">
+                <div class="group flex gap-16 h-18.5">
+                    <ul class="flex text-[clamp(0.8rem,1.1vw,1.1rem)] gap-10 xl:gap-19 items-center justify-bewteen text-center font-base text-neutral-700">
+                        <li class="relative flex flex-col items-center cursor-pointer py-12">
+                            회사소개
+                            <ul
+                                class="hidden whitespace-nowrap group-hover:flex flex-col justify-center items-center gap-3 absolute top-full left-1/2 -translate-x-1/2 z-10 text-neutral-400">
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">회사개요</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">연혁</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">세계속의롯데웰푸드</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">사업장위치</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">식품인증규격</li>
+                            </ul>
+                        </li>
+                        <li class="relative flex flex-col items-center cursor-pointer py-12">
+                            브랜드 소개
+                            <ul
+                                class="hidden whitespace-nowrap group-hover:flex flex-col justify-center items-center gap-3 absolute top-full left-1/2 -translate-x-1/2 z-10 text-neutral-400">
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">제품소개</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">주요브랜드</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">캐릭터스토리</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">과자상식백과</li>
+                            </ul>
+                        </li>
+                        <li class="relative flex flex-col items-center cursor-pointer py-12">
+                            투자정보
+                            <ul
+                                class="hidden whitespace-nowrap group-hover:flex flex-col justify-center items-center gap-3 absolute top-full left-1/2 -translate-x-1/2 z-10 text-neutral-400">
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">주주정보</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">주가정보</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">재무정보</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">전자공고및공시</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">IR정보</li>
+                            </ul>
+                        </li>
+                        <li class="relative flex flex-col items-center cursor-pointer py-12">
+                            ESG경영
+                            <ul
+                                class="hidden whitespace-nowrap group-hover:flex flex-col justify-center items-center gap-3 absolute top-full left-1/2 -translate-x-1/2 z-10 text-neutral-400">
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">ESG경영체계</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">ESG 정책</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">환경경영(E)</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">사회공헌(S)</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">안전경영(S)</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">지배구조(G)</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">컴플라이언스</li>
+                            </ul>
+                        </li>
+                        <li class="relative flex flex-col items-center cursor-pointer py-12">
+                            홍보센터
+                            <ul
+                                class="hidden whitespace-nowrap group-hover:flex flex-col justify-center items-center gap-3 absolute top-full left-1/2 -translate-x-1/2 z-10 text-neutral-400">
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">공지사항</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">뉴스자료실</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">CF스토리</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">LiveSocial</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">가나초콜릿체</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">설레임체</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">닥터자일리톨버스</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">이벤트</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">레시피</li>
+                            </ul>
+                        </li>
+                        <li class="relative flex flex-col items-center cursor-pointer py-12">
+                            채용
+                            <ul
+                                class="hidden whitespace-nowrap group-hover:flex flex-col justify-center items-center gap-3 absolute top-full left-1/2 -translate-x-1/2 z-10 text-neutral-400">
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">채용공고</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">인재DB</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">채용정보</li>
+                            </ul>
+                        </li>
+                        <li class="relative flex flex-col items-center cursor-pointer py-12">
+                            고객센터
+                            <ul
+                                class="hidden whitespace-nowrap group-hover:flex flex-col justify-center items-center gap-3 absolute top-full left-1/2 -translate-x-1/2 z-10 text-neutral-400">
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">FAQ</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">고객의 소리</li>
+                                <li class="text-[clamp(0.5rem,1.1vw,1rem)] cursor-pointer hover:text-red-600">아이디어 제안</li>
+                            </ul>
+                        </li>
+                        <div
+                            class="hidden group-hover:block justify-center items-center w-full h-88 absolute top-18.5 right-0 bg-gray-600 border-t-1 border-t-neutral-300">
+                        </div>
+                    </ul>
+                </div>
+
+            </nav>
+    </header>
+</body>
+</html>
