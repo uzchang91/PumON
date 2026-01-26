@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>품:ON</title>
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/modalTos.css">
     <link rel="stylesheet" href="./css/loader.css">
     <link rel="icon" type="svg" href="./assets/images/favicon.svg">
 </head>
@@ -16,7 +18,7 @@
         <div class="container">
             <!-- logo area -->
             <div class="logo">
-                <a href="./index.html"><img src="./assets/images/ci4.svg" alt="logo"></a>
+                <a href="./index.html"><img src="./assets/images/ci4.svg" alt="품:ON"></a>
             </div>
             <!-- menu area -->
             <ul class="nav-wrapper">
@@ -36,7 +38,11 @@
             <!-- account area -->
             <div class="acc-action">
                 <div class="acc-flex" id="accMenu">
-                    <div class="acc-trigger" id="accTrigger">
+                    <div class="acc-flex" id="accMenu">
+                        <a href="/login">로그인</a>
+                        <a href="/signup" class="btn-primary">회원가입</a>
+                    </div>
+                    <!-- <div class="acc-trigger" id="accTrigger">
                         <div class="acc">
                             <img src="./assets/images/account.svg">
                         </div>
@@ -56,7 +62,7 @@
                     </li>
                     <li class="link3"><a href="">정보 수정</a></li>
                     <li class="link3"><a href="">로그아웃</a></li>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </header>
@@ -170,7 +176,7 @@
                     <div class="flx-ttl">
                         <div class="shelter-num">1</div>
                         <div class="description">
-                            <div class="t-S sub">보호소센터</div>
+                            <div class="t-S sub">보호센터</div>
                             <div id="careNmEm">404</div>
                         </div>
                     </div>
@@ -229,7 +235,7 @@
     </main>
 
     <!-- TOS Modal -->
-    <div id="tosModal" class="modal">
+    <div id="tosModal" class="modalTos">
         <!-- Modal content -->
         <div class="modal-content">
             <div class="modal-header">
