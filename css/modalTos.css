@@ -1,0 +1,71 @@
+.modalTos {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 99;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: hidden;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background-color: #ffffff;
+    margin: 56px auto;
+    /* 15% from the top and centered */
+    border-radius: 1rem;
+    width: 40vw;
+    /* Could be more or less, depending on screen size */
+    height: 800px;
+    word-break: keep-all;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+    color: #ffffff;
+    border-radius: 1rem 1rem 0px 0px;
+    background-color: #192631;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0px 24px;
+    overflow: auto;
+    color: #192631;
+    height: 666px;
+    line-height: 2rem;
+}
+
+.close img {
+    background: #ffffff;
+    float: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #192631;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+hr {
+    border: 1px solid #bfbfbf;
+}

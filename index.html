@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>품:ON</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/loader.css">
+    <link rel="icon" type="svg" href="./assets/images/favicon.svg">
+</head>
+
+<body>
+    <header class="wrap" id="header">
+        <div class="container">
+            <!-- logo area -->
+            <div class="logo">
+                <a href="./index.html"><img src="./assets/images/ci4.svg" alt="logo"></a>
+            </div>
+            <!-- menu area -->
+            <ul class="nav-wrapper">
+                <li class="select">
+                    <a href="/about" class="link">홈</a>
+                </li>
+                <li class="select">
+                    <a href="/services" class="link">보호소</a>
+                </li>
+                <li class="select">
+                    <a href="/shelters" class="link">입양동물</a>
+                </li>
+                <li class="select">
+                    <a href="/pages/foster.html" class="link">임시보호자</a>
+                </li>
+            </ul>
+            <!-- account area -->
+            <div class="acc-action">
+                <div class="acc-flex" id="accMenu">
+                    <div class="acc-trigger" id="accTrigger">
+                        <div class="acc">
+                            <img src="./assets/images/account.svg">
+                        </div>
+                        <div class="name-action">
+                            <div class="t-M" id="accName">가나디</div>
+                            <div class="t-S" id="heir">임시 보호자</div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="options t-M" id="accOptions">
+                    <li class="link4">
+                        <label class="chkLabel" for="protectable">
+                            <input type="checkbox" checked="checked" id="protectable">
+                            <span class="checkmark"></span>
+                            <span class="fosent">임시보호 가능</span>
+                        </label>
+                    </li>
+                    <li class="link3"><a href="">정보 수정</a></li>
+                    <li class="link3"><a href="">로그아웃</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- loading bar -->
+    <div id="pageLoader">
+        <div class="loader-bar"></div>
+    </div>
+
+    <!-- main area -->
+    <main>
+        <!-- map area -->
+        <div class="container2">
+            <div class="t-XL">보호소 현황</div>
+            <div class="map-flx">
+                <div class="flx">
+                    <!-- 범례 -->
+                    <div class="mapping">
+                        <div class="legends">
+                            <p class="flx t-L">수용 범위</p>
+                            <div class="label">
+                                <div class="danger-bar"></div>
+                                <div class="description">
+                                    <div class="t-M">위험</div>
+                                    <div class="t-S">70% 이상</div>
+                                </div>
+                            </div>
+                            <div class="label">
+                                <div class="warning-bar"></div>
+                                <div class="description">
+                                    <div class="t-M">경고</div>
+                                    <div class="t-S">40% 이상</div>
+                                </div>
+                            </div>
+                            <div class="label">
+                                <div class="good-bar"></div>
+                                <div class="description">
+                                    <div class="t-M">여유</div>
+                                    <div class="t-S">39% 이하</div>
+                                </div>
+                            </div>
+                            <div class="label">
+                                <div class="null-bar"></div>
+                                <div class="description">
+                                    <div class="t-M">제한됨</div>
+                                    <div class="t-S">0%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- instuction -->
+                        <div class="label">
+                            <div class="map-back">
+                                <div class="t-M">뒤로가기 방법</div>
+                                <div class="inst">
+                                    전체 지도를 다시 보기 위해서는 지도 바깥을 누르시길 바랍니다.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- map -->
+                    <div>
+                        <div id="tooltip"></div>
+                        <canvas id="polyMap" width="686" height="542"></canvas>
+                    </div>
+                </div>
+                <!-- grid -->
+                <div class="container3">
+                    <div class="dash-grid">
+                        <div id="dashbColor" class="card-null">
+                            <div class="dash-grid2">
+                                <div class="dash-pad">
+                                    <div class="t-S sub">수용 가능 수</div>
+                                    <div class="t-L"><span id="aceptncAbltyCntComp" class="t-XL">0</span> 마리</div>
+                                </div>
+                                <div class="dash-pad">
+                                    <div class="t-S sub">수용 상태</div>
+                                    <div class="t-L"><span class="t-XL" id="prolterComp">0</span>% 사용중</div>
+                                </div>
+                                <div class="dash-pad">
+                                    <div class="t-S sub">입양 공고 수</div>
+                                    <div class="t-L"><span class="t-XL" id="processStateComp">0</span> 개</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gcard card-null">
+                            <div class="t-S sub">보호시설 수</div>
+                            <div class="t-L"><span class="t-XL" id="totalSheltersComp">0</span> 개</div>
+                        </div>
+                        <div class="gcard card-null">
+                            <div class="t-S sub">수의사 수</div>
+                            <div class="t-L"><span class="t-XL" id="vetPersonCntComp">0</span> 명</div>
+                        </div>
+                        <div class="gcard card-null">
+                            <div class="t-S sub">전문의원 수</div>
+                            <div class="t-L"><span class="t-XL" id="specsPersonCntComp">0</span> 명</div>
+                        </div>
+                    </div>
+                    <div class="wcard card-null">
+                        <canvas id="mapSum"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top5 shelter-->
+        <div class="shelter-container">
+            <div class="shelter-header">위기 보호소 TOP 5</div>
+            <div id="top5">
+                <!-- shelter cards repeat.js -->
+                <div class="sheltercard">
+                    <!-- shelter number & name -->
+                    <div class="flx-ttl">
+                        <div class="shelter-num">1</div>
+                        <div class="description">
+                            <div class="t-S sub">보호소센터</div>
+                            <div id="careNmEm">404</div>
+                        </div>
+                    </div>
+                    <!-- progress bar -->
+                    <div class="description">
+                        <div class="t-S sub">수용률</div>
+                        <div><span id="numEm" class="t-B">404</span>%</div>
+                        <progress id="barEm" value="0" max="100"></progress>
+                    </div>
+                    <!-- address -->
+                    <div class="description">
+                        <div class="t-S sub">주소</div>
+                        <div id="careAddrEm">404</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- animal -->
+        <div class="container2">
+            <div class="spread">
+                <span class="t-XL">긴급 입양 동물</span>
+                <a href="./shelters" class="t-S">더보기</a>
+            </div>
+            <div id="petList">
+                <!-- pet cards repeat.js -->
+                <div class="petcard">
+                    <div class="card-top">
+                        <span id="process" class="process-badge">보호중</span>
+                        <img id="sampleImages" src="./assets/images/img_404.png">
+                    </div>
+                    <div class="description3">
+                        <div class="description2 t-L">
+                            <div class="t-S sub">404</div>
+                            <div id="kindNm">404</div>
+                        </div>
+                        <div class="description2 t-L">
+                            <div class="t-S sub">공고 번호</div>
+                            <div id="noticeNo">404</div>
+                        </div>
+                        <div class="description2 t-L">
+                            <div class="t-S sub">보호센터</div>
+                            <div id="careNm">404</div>
+                        </div>
+                        <div class="description2 t-L">
+                            <div class="t-S sub">주소</div>
+                            <div id="careAddr">404</div>
+                        </div>
+                        <div class="description2 t-L">
+                            <div class="t-S sub">구조일자</div>
+                            <div id="notice">404</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- TOS Modal -->
+    <div id="tosModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>품:ON 이용 약관</h1>
+                <img class="close" src="./assets/images/close.svg" alt="">
+            </div>
+            <div class="modal-body">
+                <h3>제1조 (목적)</h3>
+                <p>본 약관은 폼:ON(이하 “서비스”)이 제공하는 유기·유실동물 정보 제공 및 관련 서비스의 이용과 관련하여, 서비스와 이용자 간의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.
+                </p>
+                <hr>
+                <h3>제2조 (정의)</h3>
+                <p>1. 서비스란 폼:ON이 웹사이트를 통해 제공하는 유기·유실동물, 보호소 현황, 입양·반환 관련 정보 제공 서비스를 의미합니다.</p>
+                <p>2. 이용자란 본 약관에 동의하고 서비스를 이용하는 모든 회원 및 비회원을 말합니다.</p>
+                <p>3. 회원이란 서비스에 개인정보를 제공하여 회원가입을 완료한 이용자를 말합니다.</p>
+                <hr>
+                <h3>제3조 (약관의 효력 및 변경)</h3>
+                <p>1. 본 약관은 서비스 화면에 게시하거나 기타 방법으로 공지함으로써 효력이 발생합니다.</p>
+                <p>2. 서비스는 관련 법령을 위반하지 않는 범위에서 약관을 변경할 수 있으며, 변경 시 사전 공지합니다.</p>
+                <p>3. 변경된 약관에 동의하지 않을 경우 이용자는 서비스 이용을 중단할 수 있습니다.</p>
+                <hr>
+                <h3>제4조 (서비스의 제공)</h3>
+                <p>서비스는 다음과 같은 기능을 제공합니다.</p>
+                <p>1. 유기·유실동물 및 보호소 정보 제공.</p>
+                <p>2. 입양, 임시보호, 반환 관련 정보 제공.</p>
+                <p>3. 공공데이터 기반 보호소 현황 및 통계 정보 제공.</p>
+                <p>4. 기타 서비스가 정하는 기능.</p>
+                <hr>
+                <h3>제5조 (서비스의 한계 및 책임)</h3>
+                <p>1. 서비스는 정보 제공을 목적으로 하며, 입양·반환·보호 행위의 당사자가 아닙니다.</p>
+                <p>2. 서비스에 제공되는 정보는 공공데이터 또는 제3자 제공 자료를 기반으로 하며, 정확성·완전성을 보장하지 않습니다.</p>
+                <p>3. 이용자는 제공된 정보를 참고하여 스스로 판단하고 결정해야 하며, 그 결과에 대한 책임은 이용자 본인에게 있습니다.</p>
+                <hr>
+                <h3>제6조 (이용자의 의무)</h3>
+                <p>이용자는 다음 행위를 하여서는 안 됩니다.</p>
+                <p>1. 허위 정보의 등록 또는 타인의 정보 도용.</p>
+                <p>2. 서비스 운영을 방해하는 행위.</p>
+                <p>3. 관련 법령 및 본 약관을 위반하는 행위.</p>
+                <p>4. 보호소, 입양자, 제3자에게 피해를 주는 행위.</p>
+                <hr>
+                <h3>제7조 (저작권)</h3>
+                <p>1. 서비스에 게시된 콘텐츠의 저작권은 서비스 또는 정당한 권리를 가진 제3자에게 귀속됩니다.</p>
+                <p>2. 이용자는 서비스의 사전 동의 없이 콘텐츠를 무단 복제·배포·상업적 이용할 수 없습니다.</p>
+                <hr>
+                <h3>제8조 (이용자의 의무)</h3>
+                <p>1. 서비스는 시스템 점검, 장애, 불가항력 사유 발생 시 일시적으로 중단될 수 있습니다.</p>
+                <p>2. 서비스 중단으로 인한 손해에 대해 고의 또는 중대한 과실이 없는 한 책임을 지지 않습니다.</p>
+                <hr>
+                <h3>제9조 (이용자의 의무)</h3>
+                <p>서비스는 이용자의 개인정보를 보호하기 위해 관련 법령을 준수하며, 개인정보 처리에 관한 사항은 개인정보처리방침에 따릅니다.</p>
+                <hr>
+                <h3>제10조 (이용자의 의무)</h3>
+                <p>1. 서비스와 이용자 간 발생한 분쟁은 성실히 협의하여 해결합니다.</p>
+                <p>2. 협의가 이루어지지 않을 경우 대한민국 법을 준거법으로 하며, 관할 법원은 민사소송법에 따릅니다.</p>
+                <hr>
+                <h3>부칙</h3>
+                <p>본 약관은 2026년 1월 27일부터 시행합니다.</p>
+            </div>
+        </div>
+    </div>
+    <!-- footer area -->
+    <footer class="flx-cl">
+        <ul class="fsite">
+            <li id="tos">
+                <span class="link2">이용약관</span>
+            </li>
+            <li>
+                <span class="link2">개인정보처리방침</span>
+            </li>
+            <li>
+                <span class="link2">후원하기</span>
+            </li>
+        </ul>
+        <div class="fsite">
+            <a href="http://www.mois.go.kr" alt="행정안전부 홈페이지로 갑니다">
+                <img src="./assets/images/행정안전부_국_좌우.svg" alt="행정안전부" class="flogo">
+            </a>
+            <div class="description">
+                <p>(61475) 광주 동구 중앙로 196 3층 301호A</p>
+                <p>©Crunky all right reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="./js/main.js"></script>
+    <script src="./js/accOptions.js"></script>
+    <script src="./js/lowPolyMap.js"></script>
+    <script src="./js/tos.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+@import "./index.css";
+
+/* ===== Page Loading Bar ===== */
+#pageLoader {
+    position: fixed;
+    top: 92px;
+    /* sticks under header */
+    height: 3px;
+    width: 100%;
+    z-index: 9999;
+}
+
+.loader-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary), var(--danger));
+    transition: width 0.3s ease;
+    background-size: 200% 100%;
+    animation:
+        pulseMove 1s ease-in-out infinite,
+        /* glowPulse 1s ease-in-out infinite */
+        ;
+    transition: width 0.3s ease;
+    box-shadow:
+        0 0 8px #6673FF99,
+        0 0 16px #6673FF66;
+}
+
+.loader-bar::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(90deg,
+        transparent,
+        #6673FFe6,
+        transparent);
+
+    filter: blur(6px);
+    opacity: 0.8;
+
+    animation: glowPulse 1s linear infinite;
+}
+
+@keyframes pulseMove {
+    0% {
+        background-position: 0% 50%;
+        opacity: 0.6;
+    }
+
+    50% {
+        background-position: 100% 50%;
+        opacity: 1;
+    }
+
+    100% {
+        background-position: 0% 50%;
+        opacity: 0.6;
+    }
+}
+
+@keyframes glowPulse {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
