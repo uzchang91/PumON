@@ -1,0 +1,101 @@
+/* /////////////////////////////// Base */
+:root {
+
+    /* =========================
+     Layout
+     ========================= */
+    --layout-max-width: 90rem;
+    /* 1440px */
+
+    /* =========================
+     Typography (5-step scale)
+     ========================= */
+    /* Level 1 : Main title */
+    --font-size-1: 1.55rem;
+    --font-weight-1: 700;
+
+    /* Level 2 : Section title */
+    --font-size-2: 1.2rem;
+    --font-weight-2: 600;
+
+    /* Level 3 : Emphasis */
+    --font-size-3: 1.1rem;
+    --font-weight-3: 500;
+
+    /* Level 4 : Body (default) */
+    --font-size-4: 1rem;
+    --font-weight-4: 500;
+
+    /* Level 5 : Caption / Helper */
+    --font-size-5: 0.85rem;
+    --font-weight-5: 400;
+
+    /* =========================
+     Brand Colors
+     ========================= */
+    --color-border: #e5e7eb;
+
+    --color-bg-common: #ffffff;
+    --color-bg-smokey: #e3e3e3;
+
+    --color-primary: #6673ff;
+    --color-primary-sub: #b9bfff;
+    --color-secondary: #ffb01f;
+
+    --color-text: #192631;
+    --color-subtext: #4c7495;
+    --color-mute: #888888;
+
+    --color-danger: #ff2462;
+    --color-good: #09f66c;
+
+    /* =========================
+     Border Radius (rem-based)
+     ========================= */
+    /* Card */
+    --radius-card-lg: 1.5rem;
+    /* 24px */
+    --radius-card-sm: 1rem;
+    /* 16px */
+
+    /* Button */
+    --radius-button-lg: 1rem;
+    /* 16px */
+
+    /* Fully rounded (pill / circle) */
+    --radius-round: 999rem;
+
+    /* Badge */
+    --radius-badge: 999rem;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'pretendard';
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--color--text);
+}
+
+.acc-guest {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.btn-login {
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.btn-signup {
+  padding: 0.4rem 0.9rem;
+  border-radius: 1rem;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.85rem;
+}
+

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" aria-label="document icon" role="img">
+  <!-- document body -->
+  <path d="M28 14h52l20 20v80H28z" fill="#ffffff" stroke="#111827" stroke-width="4" stroke-linejoin="round"></path>
+  <!-- folded corner -->
+  <path d="M80 14v20h20" fill="#e5e7eb" stroke="#111827" stroke-width="4" stroke-linejoin="round"></path>
+  <!-- title lines -->
+  <path d="M40 54h48" stroke="#111827" stroke-width="4" stroke-linecap="round"></path>
+  <path d="M40 66h40" stroke="#111827" stroke-width="4" stroke-linecap="round"></path>
+  <path d="M40 78h48" stroke="#111827" stroke-width="4" stroke-linecap="round"></path>
+  <!-- seal -->
+  <circle cx="84" cy="96" r="10" fill="#ffffff" stroke="#111827" stroke-width="4"></circle>
+  <path d="M80 107l4-5 4 5 4-5 4 5" fill="none" stroke="#111827" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>회원가입 - 품:ON</title>
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/common.css" />
+  <link rel="stylesheet" href="../css/signup.css" />
+  <link rel="stylesheet" href="../css/foster-style.css" />
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+
+<body>
+  <header class="wrap" id="header">
+    <div class="container">
+      <!-- logo area -->
+      <div class="logo">
+        <a href="../index.html"><img src="../assets/images/header-logo.svg" alt="logo"></a>
+      </div>
+      <!-- menu area -->
+      <ul class="nav-wrapper">
+        <li class="select">
+          <a href="../index.html" class="link">홈</a>
+        </li>
+        <li class="select">
+          <a href="/services" class="link">보호소</a>
+        </li>
+        <li class="select">
+          <a href="/shelters" class="link">입양동물</a>
+        </li>
+        <li class="select">
+          <a href="./foster.html" class="link">임시보호자</a>
+        </li>
+      </ul>
+      <!-- account area -->
+      <div class="acc-action">
+        <!-- 로딩 상태 -->
+        <div class="acc-loading" id="accLoading">
+          <div class="acc-spinner"></div>
+        </div>
+
+        <!-- 비로그인 상태 -->
+        <div class="acc-guest" id="accGuest" style="display:none;">
+          <a href="./login.html" class="btn-login">로그인</a>
+          <a href="./signup-test.html" class="btn-signup">회원가입</a>
+        </div>
+
+        <!-- 로그인 상태 -->
+        <div class="acc-flex" id="accUser" style="display:none;">
+          <div class="acc-trigger" id="accTrigger">
+            <div class="acc">
+              <img src="../assets/images/account.svg">
+            </div>
+            <div class="name-action">
+              <div class="t-M" id="accName">사용자</div>
+              <div class="t-S" id="accRole">임시 보호자</div>
+            </div>
+          </div>
+
+          <ul class="options t-M" id="accOptions">
+            <li class="link4">
+              <label class="chkLabel" for="protectable">
+                <input type="checkbox" id="protectable">
+                <span class="checkmark"></span>
+                임시보호 가능
+              </label>
+            </li>
+            <li class="link4"><button id="logoutBtn">로그아웃</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- 회원가입 유형 선택 -->
+    <div class="signup-select" id="signupSelect">
+      <h1 class="signup-select-title">회원가입 구분</h1>
+      <div class="signup-select-cards">
+        <button class="signup-card shelter" id="btn-select-shelter">
+          <img src="../assets/images/signup-shelter-icon.png" alt="보호소 아이콘">
+          <span class="card-label">보호소 관계자</span>
+        </button>
+        <button class="signup-card foster" id="btn-select-foster">
+          <img src="../assets/images/singup-foster-icon.svg" alt="임시보호자 아이콘">
+          <span class="card-label">임시 보호자</span>
+        </button>
+      </div>
+    </div>
+    <!-- 1) shelter 버튼 클릭시 display -->
+    <!-- 보호소 가입 입력 폼 -->
+    <section class="signup-shelter hidden">
+      <div class="form-group">
+        <label>이메일</label>
+        <div class="input-with-btn">
+          <input type="text" id="shelter-email">
+          <button class="btn-side">중복확인</button>
+        </div>
+        <label>비밀번호</label>
+        <input type="password" id="shelter-password">
+        <br>
+        <label>비밀번호 확인</label>
+        <input type="password" id="shelter-password-confirm">
+      </div>
+      <div class="form-group">
+        <label>담당자 이름</label>
+        <input type="text" id="shelter-manager-name">
+        <br>
+        <label>담당자 연락처</label>
+        <input type="text" id="shelter-manager-phone">
+      </div>
+      <div class="form-group">
+        <label>보호소 유형</label>
+        <div class="radio-group-center">
+          <div class="radio-item">
+            <input type="radio" id="shelter-type-public" name="shelter-type" value="public" />
+            <label for="shelter-type-public">공공</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" id="shelter-type-private" name="shelter-type" value="private" />
+            <label for="shelter-type-private">민간</label>
+          </div>
+        </div>
+        <label>대표자명</label>
+        <input type="text" id="shelter-owner-name">
+        <br>
+        <label>사업자 등록번호</label>
+        <input type="text" id="shelter-business-number">
+        <br>
+        <label>보호소명</label>
+        <input type="text" id="shelter-name">
+        <br>
+        <label>보호소 등록번호</label>
+        <div class="input-with-btn">
+          <input type="text" id="shelter-registration-number">
+          <button class="btn-side">조회하기</button>
+        </div>
+        <br>
+        <label>주소</label>
+        <input type="text" id="shelter-address">
+      </div>
+    </section>
+    <hr />
+    <!-- 2) foster 버튼 클릭시 display -->
+    <!-- 개인(임시보호자) 가입 입력 폼 -->
+    <section class="signup-users hidden">
+      <div class="form-group">
+        <label>이메일</label>
+        <div class="input-with-btn">
+          <input type="text" id="user-email">
+          <button class="btn-side">중복확인</button>
+        </div>
+        <label>비밀번호</label>
+        <input type="password" id="user-password">
+        <br>
+        <label>비밀번호 확인</label>
+        <input type="password" id="user-password-confirm">
+      </div>
+      <div class="form-group">
+        <label>이름</label>
+        <input type="text" id="user-name">
+        <br>
+        <label>연락처</label>
+        <input type="text" id="user-phone">
+        <br>
+        <label>주소</label>
+        <input type="text" id="user-address">
+      </div>
+      <div class="form-group">
+        <label>임시보호 가능 기간</label>
+        <div class="checkbox-group">
+          <div class="radio-item">
+            <input type="radio" id="user-period-1" name="user-period" value="1~3개월" />
+            <label for="user-period-1">1~3개월</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" id="user-period-2" name="user-period" value="3~6개월" />
+            <label for="user-period-2">3~6개월</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" id="user-period-3" name="user-period" value="6개월이상" />
+            <label for="user-period-3">6개월 이상 (협의가능)</label>
+          </div>
+        </div>
+
+        <label>선호 동물 (복수 선택 가능)</label>
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="checkbox" id="user-prefer-dog" name="user-prefer" />
+            <label for="user-prefer-dog">강아지</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="user-prefer-cat" name="user-prefer" />
+            <label for="user-prefer-cat">고양이</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="user-prefer-etc" name="user-prefer" />
+            <label for="user-prefer-etc">기타</label>
+          </div>
+        </div>
+
+        <label>선호 크기 (복수 선택 가능)</label>
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="checkbox" id="user-size-small" name="user-size" />
+            <label for="user-size-small">소형 (7kg 이하)</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="user-size-medium" name="user-size" />
+            <label for="user-size-medium">중형 (7~15kg)</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="user-size-large" name="user-size" />
+            <label for="user-size-large">대형 (15kg 이상)</label>
+          </div>
+        </div>
+
+        <label>반려동물 양육 경험</label>
+        <div class="checkbox-group">
+          <div class="radio-item">
+            <input type="radio" id="user-experience-no" name="user-experience" value="n" />
+            <label for="user-experience-no">없음</label>
+          </div>
+          <div class="radio-item experience-yes">
+            <input type="radio" id="user-experience-yes" name="user-experience" value="y" />
+            <label for="user-experience-yes">있음</label>
+            <span class="experience-input">(
+              <input type="text" id="user-experience-yesNm" />
+            )년</span>
+          </div>
+        </div>
+
+        <label>특수 케어 가능여부</label>
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="checkbox" id="user-care-medicine" name="user-care" />
+            <label for="user-care-medicine">약 투여가능</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="user-care-disabled" name="user-care" />
+            <label for="user-care-disabled">장애 동물 가능</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="user-care-senior" name="user-care" />
+            <label for="user-care-senior">노령 동물 가능</label>
+          </div>
+        </div>
+
+        <label>동물사랑 배움터 온라인 교육 이수 여부</label>
+        <div class="checkbox-group">
+          <div class="radio-item">
+            <input type="radio" id="user-cert-dog" name="user-cert" value="cert-dog" />
+            <label for="user-cert-dog">반려견</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" id="user-cert-cat" name="user-cert" value="cert-cat" />
+            <label for="user-cert-cat">반려묘</label>
+          </div>
+        </div>
+
+        <label for="user-cert-number">수료증 번호</label>
+        <input type="text" id="user-cert-number" name="user-cert" />
+      </div>
+    </section>
+    <div class="btn-group hidden" id="signupBtnGroup">
+      <button id="btn-before">이전</button>
+      <button id="btn-signup">회원가입 완료</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-right">
+        <div class="policy-links">
+          <a href="/terms">이용약관</a>
+          <span aria-hidden="true">·</span>
+          <a href="/privacy">개인정보처리방침</a>
+        </div>
+        <p class="copyright">© 2026 Life Bridge. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 스크립트 -->
+  <!-- firebase 서비스 추가하기(Core-필수, Auth, Realtime DataBase, Storage ) -->
+  <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-storage-compat.js"></script>
+
+  <!-- Scripts -->
+  <script src="../js/firebase-auth.js"></script>
+  <script src="../js/acc-options.js" defer></script>
+  <script src="../js/login.js"></script>
+  <script src="../js/signup.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>품:ON</title>
+
+
+    <!-- 외부 라이브러리 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- 커스텀 CSS -->
+    <link rel="stylesheet" href="../css/animal.css">
+    <link rel="stylesheet" href="../css/modalTos.css">
+
+    <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+ 
+
+</head>
+
+
+<body>
+
+    <header class="wrap" id="header">
+        <div class="container">
+            <!-- logo area -->
+            <div class="logo">
+
+                <img src="../assets/images/header-logo.svg" alt="">
+                <a href="./index.html"></a>
+            </div>
+            <!-- menu area -->
+            <ul class="nav-wrapper">
+                <li class="select">
+                    <a href="../index.html" class="link">홈</a>
+                </li>
+                <li class="select">
+                    <a href="../pages/shelter.html" class="link">보호소</a>
+                </li>
+                <li class="select">
+                    <a href="../pages/animal.html" class="link">입양동물</a>
+                </li>
+                <li class="select">
+                    <a href="../pages/foster.html" class="link">임시보호자</a>
+                </li>
+            </ul>
+            <!-- account area -->
+            <div class="acc-action">
+                <!-- 비로그인 상태 -->
+                <div class="acc-guest" id="accGuest">
+                    <a href="./login.html" class="btn-login">로그인</a>
+                    <a href="./signup.html" class="btn-signup">회원가입</a>
+                </div>
+                <!-- 로그인 상태 -->
+                <div class="acc-flex" id="accUser" style="display: none;">
+                    <div class="acc-trigger" id="accTrigger">
+                        <div class="acc">
+                            <img src="../assets/images/account.svg">
+                        </div>
+                        <div class="name-action">
+                            <div class="t-M" id="accName">사용자</div>
+                            <div class="t-S" id="accRole">임시 보호자</div>
+                        </div>
+                    </div>
+                    <ul class="options t-M" id="accOptions">
+                        <li class="link4">
+                            <label class="chkLabel" for="protectable">
+                                <input type="checkbox" checked="checked" id="protectable">
+                                <span class="checkmark"></span>
+                                <span class="fosent">임시보호 가능</span>
+                            </label>
+                        </li>
+                        <li class="link3"><a href="">정보 수정</a></li>
+                        <li class="link3"><a href="#" onclick="auth.signOut(); return false;">로그아웃</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- 히어로 섹션 -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h2>우리 동네 아이들이<br><span class="highlight">가족</span>을 기다립니다</h2>
+                <p>매년 약 10만 마리의 유기동물이 발생합니다.<br>당신의 클릭 한 번이 아이들의 새로운 삶의 시작이 됩니다.</p>
+                <a href="#toplink" class="hero-cta">보호소 아이들 보기</a>
+            </div>
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3>전국 지역별 유기동물 보호현황</h3>
+                    <p class="total-count" id="totalCount">총 0마리</p>
+                </div>
+                <div class="chart-wrapper">
+                    <div id="chartLoading" class="chart-loading">데이터를 불러오는 중입니다...</div>
+                    <canvas id="regionChart"></canvas>
+                </div>
+
+                <!--<div class="chart-wrapper">
+                    <canvas id="regionChart"></canvas>
+                </div> 테스트중-->
+            </div>
+        </div>
+    </section>
+
+    <!--입양 절차 가이드-->
+    <section id="guideSection" class="guide-section">
+        <div class="guide-title">
+            <h2>입양, 임시보호 절차는 어떻게 진행되나요?</h2>
+            <p>충분한 고민 끝에 내린 결정이 한 생명을 구합니다.</p>
+        </div>
+        <div class="guide-container">
+            <div class="guide-step">
+                <div class="step-num">01</div>
+                <h3>상담 문의</h3>
+                <p><b>보호소</b>에 전화를 걸어 상담을 진행합니다.</p>
+            </div>
+            <div class="guide-step">
+                <div class="step-num">02</div>
+                <h3>보호소 방문</h3>
+                <p>직접 방문하여 <b>설문지 작성</b>을 합니다.</p>
+            </div>
+            <div class="guide-step">
+                <div class="step-num">03</div>
+                <h3>심사 및 절차</h3>
+                <p>환경 심사 후 <b>보호소와 상담</b>를 진행합니다.</p>
+            </div>
+            <div class="guide-step">
+                <div class="step-num">04</div>
+                <h3>입양,임시보호 완료</h3>
+                <p><b>동물 등록</b>을 완료하고 함께할 가족이 됩니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 메인 콘텐츠 -->
+    <main>
+        <!-- 긴급 입양 섹션 -->
+        <div class="urgent-section">
+            <div class="urgent-header">
+                <div class="urgent-title" id="toplink">
+                    <h3>긴급 입양 필요한 아이들</h3>
+                    <span class="urgent-badge animate-pulse">보호소의 수용가능규모 90% 초과</span>
+                </div>
+
+                <button class="urgent-view-all" onclick="openUrgentModal()">전체보기 ❯</button>
+            </div>
+            <div class="swiper swiper-container">
+                <div id="urgentScroll" class="swiper-wrapper">
+                    <div class="swiper-slide"
+                        style="text-align:center; padding: 2.5rem 0; color: #9ca3af; font-weight: 700;">데이터 분석 중...
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <!-- 필터 및 동물 그리드 -->
+        <div class="filter-section">
+            <div class="filter-header">
+                <h3 class="filter-title" id="gridTitle">새로운 가족을 찾아요</h3>
+                <div class="filter-controls">
+                    <select id="sidoFilter" class="filter-select">
+                        <option value="">시/도 선택</option>
+                    </select>
+                    <select id="sigunguFilter" class="filter-select" disabled>
+                        <option value="">시/군/구 선택</option>
+                    </select>
+                    <button id="resetFilter" class="reset-btn">초기화 ↺</button>
+                </div>
+            </div>
+
+            <div class="animal-grid" id="animalGrid">
+                <div class="loading-message animate-pulse">데이터 로딩 중...</div>
+            </div>
+
+            <div id="pagination" class="pagination"></div>
+        </div>
+    </main>
+
+    <!-- 상세보기 모달 -->
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-header-left">
+                    <span style="font-size: 1.25rem;">🏠</span>
+                    <h2 id="mCareNmHeader">보호소 정보</h2>
+                </div>
+                <button id="closeModal" class="modal-close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-grid">
+                    <div class="modal-images">
+                        <div class="modal-main-img-wrapper">
+                            <img id="mMainImg" src="" class="modal-main-img">
+                            <button id="prevBtn" class="modal-nav-btn prev">❮</button>
+                            <button id="nextBtn" class="modal-nav-btn next">❯</button>
+                            <div class="modal-img-count" id="mImgCount">1/1</div>
+                        </div>
+                        <div id="mThumbnails" class="modal-thumbnails"></div>
+                    </div>
+                    <div class="modal-details">
+                        <div class="modal-title-section">
+                            <h3 id="mKindTitle"></h3>
+                            <p class="modal-specs" id="mSpecs"></p>
+                        </div>
+                        <div class="modal-info-list">
+                            <div class="modal-info-item">
+                                <span class="modal-info-label">공고번호</span>
+                                <span id="mNoticeNo" class="modal-info-value highlight"></span>
+                            </div>
+                            <!-- 공고기간
+                            <div class="modal-info-item">
+                                <span class="modal-info-label">공고기간</span>
+                                <span id="mNoticeDate" class="modal-info-value"></span>
+                            </div>
+                            -->
+                            <div class="modal-info-item">
+                                <span class="modal-info-label">발견장소</span>
+                                <span id="mPlace" class="modal-info-value"></span>
+                            </div>
+                            <div class="modal-info-item">
+                                <span class="modal-info-label">특이사항</span>
+                                <span id="mMark" class="modal-info-value"></span>
+                            </div>
+                            <div class="modal-info-item">
+                                <span class="modal-info-label">보호소</span>
+                                <span id="mShelterInfo" class="modal-info-value bold"></span>
+                            </div>
+                            <div class="modal-info-item">
+                                <span class="modal-info-label">연락처</span>
+                                <span id="mAdoptBtn" class="modal-info-value bold"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="modal-actions"
+                            style="display: flex !important; gap: 12px !important; width: 100% !important;">
+                            <a href="" style="flex: 1 !important; width: 50% !important; min-width: 0 !important;"
+                                class="modal-btn">문의 하기</a> <!--나중에 우주씨 페이지랑 연결-->
+                            <button id="mLocBtn" class="modal-btn-secondary"
+                                style="flex: 1 !important; width: 50% !important; min-width: 0 !important;">보호소
+                                위치</button>
+                        </div>
+                        <p>전화(연락처) 문의는 보호소 운영시간 확인 후 이용 바랍니다.</p>
+                        <div id="gaugeList" class="gauge-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 긴급 입양 모달 -->
+    <div id="urgentModalOverlay" class="modal-overlay">
+        <div class="modal-content" id="urgentModalContent">
+            <div class="urgent-modal-header">
+                <div class="urgent-modal-title">
+                    <h2>긴급 입양 리스트</h2>
+                    <p>보호소 수용 인원이 90%를 초과하여 입양이 시급한 아이들입니다.</p>
+                </div>
+                <button onclick="closeUrgentModal()" class="modal-close">×</button>
+            </div>
+            <div class="urgent-modal-body">
+                <div id="urgentGrid" class="urgent-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 푸터 영역 -->
+
+<!-- footer area -->
+  <footer class="flx-cl">
+    <ul class="fsite">
+      <li id="tos">
+        <span class="link2">이용약관</span>
+      </li>
+      <li>
+        <span class="link2">개인정보처리방침</span>
+      </li>
+      <li>
+        <span class="link2">후원하기</span>
+      </li>
+    </ul>
+    <div class="fsite">
+      <a href="http://www.mois.go.kr" alt="행정안전부 홈페이지로 갑니다">
+        <img src="../assets/images/행정안전부_국_좌우.svg" alt="행정안전부" class="flogo">
+      </a>
+      <div class="description">
+        <p>(61475) 광주 동구 중앙로 196 3층 301호A</p>
+        <p>©Crunky all right reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+    <!--외부-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-database-compat.js"></script>
+    <script src="../js/firebase-auth.js"></script>
+
+    <!-- 커스텀 JavaScript -->
+    <script type="module" src="../js/animal.js"></script>
+    <script type="module" src="../js/acc-options.js"></script>
+
+</body>
+
+</body>
+
+</html>

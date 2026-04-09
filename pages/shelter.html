@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>품:ON</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <!-- <link rel="stylesheet" href="./css/index.css"> -->
+  <link rel="stylesheet" href="../css/shelter.css" />
+  <link rel="stylesheet" href="../css/modalTos.css">
+  <link rel="icon" type="svg" href="../assets/images/favicon.svg">
+</head>
+
+<body>
+  <!-- 로딩 오버레이 -->
+  <div id="loadingOverlay">
+    <div class="loading-box">
+      <div class="loading-spinner">
+        <span></span>
+      </div>
+      <h2>데이터를 불러오는 중입니다</h2>
+    </div>
+  </div>
+
+  <header class="wrap" id="header">
+    <div class="container">
+      <!-- logo area -->
+      <div class="logo">
+        <a href="../index.html"><img src="../assets/images/ci4.svg" alt="품:ON"></a>
+      </div>
+      <!-- menu area -->
+      <ul class="nav-wrapper">
+        <li class="select">
+          <a href="../index.html" class="link">홈</a>
+        </li>
+        <li class="select">
+          <a href="../pages/shelter.html" class="link">보호소</a>
+        </li>
+        <li class="select">
+          <a href="../pages/animal.html" class="link">입양동물</a>
+        </li>
+        <li class="select">
+          <a href="../pages/foster.html" class="link">임시보호자</a>
+        </li>
+      </ul>
+      <!-- account area -->
+      <div class="acc-action">
+        <!-- 비로그인 상태 -->
+        <div class="acc-guest" id="accGuest">
+          <a href="./login.html" class="btn-login">로그인</a>
+          <a href="./signup.html" class="btn-signup">회원가입</a>
+        </div>
+        <!-- 로그인 상태 -->
+        <div class="acc-flex" id="accUser" style="display: none;">
+          <div class="acc-trigger" id="accTrigger">
+            <div class="acc">
+              <img src="../assets/images/account.svg">
+            </div>
+            <div class="name-action">
+              <div class="t-M" id="accName">사용자</div>
+              <div class="t-S" id="accRole">임시 보호자</div>
+            </div>
+          </div>
+          <ul class="options t-M" id="accOptions">
+            <li class="link4">
+              <label class="chkLabel" for="protectable">
+                <input type="checkbox" checked="checked" id="protectable">
+                <span class="checkmark"></span>
+                <span class="fosent">임시보호 가능</span>
+              </label>
+            </li>
+            <li class="link3"><a href="">정보 수정</a></li>
+            <li class="link3"><a href="#" onclick="auth.signOut(); return false;">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. 보호소 대시보드 -->
+  <section class="section dashboard-section">
+    <div class="section-inner">
+      <div class="title-box">
+        <h1 id="shelterTitle">보호소 대시보드</h1>
+      </div>
+
+      <div class="dashboard-grid">
+        <!-- 왼쪽: 카카오맵 -->
+        <div class="map-container">
+          <div id="kakaoMap"></div>
+        </div>
+
+        <!-- 오른쪽: 보호소 정보 -->
+        <div class="shelter-info-box">
+          <h2 id="shelterName">로딩 중...</h2>
+
+          <div class="info-item">
+            <strong>📍 지역</strong>
+            <p id="shelterRegion">-</p>
+          </div>
+
+          <div class="info-item">
+            <strong>🏠 보호소 주소</strong>
+            <p id="shelterAddress">-</p>
+          </div>
+
+          <div class="info-item">
+            <strong>📞 전화번호</strong>
+            <p id="shelterPhone">-</p>
+          </div>
+
+          <div class="info-item">
+            <strong>🐾 현재 보호 동물 수</strong>
+            <p class="highlight-number"><span id="currentAnimalsCount">0</span> 마리</p>
+          </div>
+
+          <div class="notice-box">
+            <p>💡 콜센터를 운영중이며, 아이들이 실시간으로 입양되고 있어 관리중인 아이들에 대한 정확한 유선안내가 어려울 수 있으니 센터 방문을 통해 정확한 확인 부탁드립니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 대시보드 차트 -->
+      <div class="dashboard-box">
+        <div class="circle-wrap">
+          <div class="circle">
+            <canvas id="pressureChart"></canvas>
+            <div class="circle-value" data-value="97" data-unit="%">0%</div>
+            <span>압박지수</span>
+          </div>
+          <div class="circle">
+            <canvas id="localRateChart"></canvas>
+            <div class="circle-value" data-value="17.8" data-unit="%">0%</div>
+            <span>보호율</span>
+          </div>
+          <div class="circle">
+            <canvas id="gyeonggiRateChart"></canvas>
+            <div class="circle-value" data-value="20.2" data-unit="%">0%</div>
+            <span>지역대비 보호율</span>
+          </div>
+          <div class="circle">
+            <canvas id="countChart"></canvas>
+            <div class="circle-value" data-value="194" data-unit="%">0%</div>
+            <span>입양 시급도</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 유기동물 배경 설명 -->
+  <section class="section info-section">
+    <div class="section-inner">
+      <h2 class="section-title">유기동물 어디서 오는걸까요?</h2>
+      <div class="reason-grid">
+        <div class="reason-card">
+          <div class="reason-icon">👶</div>
+          <p>자녀의 출산으로 인한<br>파양사례</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">💔</div>
+          <p>보호자 사망으로 인한<br>파양사례</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">🏥</div>
+          <p>가족의 지병으로 인한<br>파양사례</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">✈️</div>
+          <p>해외 이민으로 인한<br>파양사례</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 보호소 목록 -->
+  <section class="section list-section">
+    <div class="section-inner">
+      <div class="list-intro">
+        <p class="current-count">현재 <strong id="visibleAnimalsCount">0</strong>마리의 동물들이 보호되고 있습니다.</p>
+      </div>
+
+      <div class="list-header">
+        <div class="left-controls">
+          <div class="filter-group">
+            <select id="provinceSelect" class="filter-select">
+              <option value="">전체 시/도</option>
+            </select>
+            <select id="citySelect" class="filter-select" disabled>
+              <option value="">전체 시/군/구</option>
+            </select>
+          </div>
+          <div class="tag-row" id="sortTags">
+            <button class="tag active" data-sort="pressure">압박 지수</button>
+            <button class="tag" data-sort="count">보호 동물 수</button>
+            <button class="tag" data-sort="free">여유도</button>
+            <button class="tag" data-sort="urgency">입양 시급도</button>
+          </div>
+        </div>
+        <div class="list-summary">
+          Total <strong id="shelterTotalCount">0</strong>
+        </div>
+      </div>
+
+      <div id="cardContainer" class="card-grid"></div>
+      <div id="pagination" class="pagination"></div>
+    </div>
+  </section>
+
+  <!-- 4. 입양 독려 섹션 -->
+  <section class="section adoption-section">
+    <div class="section-inner">
+      <div class="adoption-content">
+        <img class="adoption-image" src="../assets/images/sad_dog3.webp" alt="입양 독려"
+          onerror="this.style.display='none'">
+        <div class="adoption-text">
+          <h2>지금도 많은 아이들이 보호소 안에서 생을 마감하고 있습니다</h2>
+          <p class="stat-text">2024년 한해 동안 총 <strong>106,824마리</strong> 유기 동물이 보호센터에 입소</p>
+          <p class="stat-subtext">(그 중 2만여마리는 안락사 처리)</p>
+        </div>
+      </div>
+
+      <div class="adoption-message">
+        <div>
+          <h3>🎁 행복 이라는 선물</h3>
+          <p>아픔을 달래고 행복을 찾아주세요</p>
+          <p>아이들의 평생을 함께해야 하는 약속, 신중한 선택과 함께<br>아이들의 손을 꼭 잡아주세요</p>
+          <p class="support-text">안락사 없는 보호센터를 만들기 위한 지원활동을 함께하고 있습니다.</p>
+        </div>
+        <img class="adoption-image" src="../assets/images/happy_dog.jpg" alt="입양 독려"
+          onerror="this.style.display='none'">
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 주의사항 -->
+  <section class="section warning-section">
+    <div class="warning-box">
+      <h3>⚠️ 주의</h3>
+      <div>
+        <p>동물법상 동물의 위탁 및 기탁 등의 이유로 지속적인 비용을 지불하는 경우, 소유주로 해석되므로 해당 관리업체의 영업허가 업종은 사설센터가 아닌 위탁관리업으로 엄연하게 분류되어 기탁자의 소유자
+          포기권이 행사될 수 없습니다.</p>
+        <p>정기적으로 비용을 청구하는 곳의 영업허가 유무를 확인하시기 바라며, 센터의 경우 비용을 정기 납입 받을 수 없습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 보호상태 Modal -->
+  <div id="modalOverlay" class="modal-overlay">
+    <div class="modal">
+      <div class="modalHeader">
+        <h3>보호소 상세</h3>
+        <button class="modal-close" id="modalCloseBtn">×</button>
+      </div>
+      <p id="modalContent"></p>
+    </div>
+  </div>
+
+  <!-- TOS Modal -->
+  <div id="tosModal" class="modalTos">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1>품:ON 이용 약관</h1>
+        <img class="close" src="../assets/images/close.svg" alt="">
+      </div>
+      <div class="modal-body">
+        <h3>제1조 (목적)</h3>
+        <p>본 약관은 폼:ON(이하 “서비스”)이 제공하는 유기·유실동물 정보 제공 및 관련 서비스의 이용과 관련하여, 서비스와 이용자 간의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.
+        </p>
+        <hr>
+        <h3>제2조 (정의)</h3>
+        <p>1. 서비스란 폼:ON이 웹사이트를 통해 제공하는 유기·유실동물, 보호소 현황, 입양·반환 관련 정보 제공 서비스를 의미합니다.</p>
+        <p>2. 이용자란 본 약관에 동의하고 서비스를 이용하는 모든 회원 및 비회원을 말합니다.</p>
+        <p>3. 회원이란 서비스에 개인정보를 제공하여 회원가입을 완료한 이용자를 말합니다.</p>
+        <hr>
+        <h3>제3조 (약관의 효력 및 변경)</h3>
+        <p>1. 본 약관은 서비스 화면에 게시하거나 기타 방법으로 공지함으로써 효력이 발생합니다.</p>
+        <p>2. 서비스는 관련 법령을 위반하지 않는 범위에서 약관을 변경할 수 있으며, 변경 시 사전 공지합니다.</p>
+        <p>3. 변경된 약관에 동의하지 않을 경우 이용자는 서비스 이용을 중단할 수 있습니다.</p>
+        <hr>
+        <h3>제4조 (서비스의 제공)</h3>
+        <p>서비스는 다음과 같은 기능을 제공합니다.</p>
+        <p>1. 유기·유실동물 및 보호소 정보 제공.</p>
+        <p>2. 입양, 임시보호, 반환 관련 정보 제공.</p>
+        <p>3. 공공데이터 기반 보호소 현황 및 통계 정보 제공.</p>
+        <p>4. 기타 서비스가 정하는 기능.</p>
+        <hr>
+        <h3>제5조 (서비스의 한계 및 책임)</h3>
+        <p>1. 서비스는 정보 제공을 목적으로 하며, 입양·반환·보호 행위의 당사자가 아닙니다.</p>
+        <p>2. 서비스에 제공되는 정보는 공공데이터 또는 제3자 제공 자료를 기반으로 하며, 정확성·완전성을 보장하지 않습니다.</p>
+        <p>3. 이용자는 제공된 정보를 참고하여 스스로 판단하고 결정해야 하며, 그 결과에 대한 책임은 이용자 본인에게 있습니다.</p>
+        <hr>
+        <h3>제6조 (이용자의 의무)</h3>
+        <p>이용자는 다음 행위를 하여서는 안 됩니다.</p>
+        <p>1. 허위 정보의 등록 또는 타인의 정보 도용.</p>
+        <p>2. 서비스 운영을 방해하는 행위.</p>
+        <p>3. 관련 법령 및 본 약관을 위반하는 행위.</p>
+        <p>4. 보호소, 입양자, 제3자에게 피해를 주는 행위.</p>
+        <hr>
+        <h3>제7조 (저작권)</h3>
+        <p>1. 서비스에 게시된 콘텐츠의 저작권은 서비스 또는 정당한 권리를 가진 제3자에게 귀속됩니다.</p>
+        <p>2. 이용자는 서비스의 사전 동의 없이 콘텐츠를 무단 복제·배포·상업적 이용할 수 없습니다.</p>
+        <hr>
+        <h3>제8조 (이용자의 의무)</h3>
+        <p>1. 서비스는 시스템 점검, 장애, 불가항력 사유 발생 시 일시적으로 중단될 수 있습니다.</p>
+        <p>2. 서비스 중단으로 인한 손해에 대해 고의 또는 중대한 과실이 없는 한 책임을 지지 않습니다.</p>
+        <hr>
+        <h3>제9조 (이용자의 의무)</h3>
+        <p>서비스는 이용자의 개인정보를 보호하기 위해 관련 법령을 준수하며, 개인정보 처리에 관한 사항은 개인정보처리방침에 따릅니다.</p>
+        <hr>
+        <h3>제10조 (이용자의 의무)</h3>
+        <p>1. 서비스와 이용자 간 발생한 분쟁은 성실히 협의하여 해결합니다.</p>
+        <p>2. 협의가 이루어지지 않을 경우 대한민국 법을 준거법으로 하며, 관할 법원은 민사소송법에 따릅니다.</p>
+        <hr>
+        <h3>부칙</h3>
+        <p>본 약관은 2026년 1월 27일부터 시행합니다.</p>
+      </div>
+    </div>
+  </div>
+  <!-- footer area -->
+  <footer class="flx-cl">
+    <ul class="fsite">
+      <li id="tos">
+        <span class="link2">이용약관</span>
+      </li>
+      <li>
+        <span class="link2">개인정보처리방침</span>
+      </li>
+      <li>
+        <span class="link2">후원하기</span>
+      </li>
+    </ul>
+    <div class="fsite">
+      <a href="http://www.mois.go.kr" alt="행정안전부 홈페이지로 갑니다">
+        <img src="../assets/images/행정안전부_국_좌우.svg" alt="행정안전부" class="flogo">
+      </a>
+      <div class="description">
+        <p>(61475) 광주 동구 중앙로 196 3층 301호A</p>
+        <p>©Crunky all right reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-database-compat.js"></script>
+  <script src="../js/firebase-auth.js"></script>
+  <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5f82fa0d2d8e017640cd39532133f49b&libraries=services"></script>
+  <script src="../js/shelter.js"></script>
+  <script src="../js/acc-options.js"></script>
+  <script src="../js/tos.js"></script>
+</body>
+
+</html>
