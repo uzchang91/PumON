@@ -16,7 +16,7 @@ const APP = {
 };
 
 const CONFIG = {
-  DATA_URL: 'https://pum--on-default-rtdb.firebaseio.com/rescuedAnimals.json',
+  DATA_URL: './pum--on-default-rtdb-export.json',
   SIDO_URL: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json',
   TOP_SHELTERS_COUNT: 5,
   DEFAULT_PET_LIMIT: 4,
